@@ -27,6 +27,40 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
+
+        <section id="about" className="md:mt-4 px-4 md:px-12 xl:px-24 mb-10">
+          <div className="text-md md:text-lg xl:text-xl font-semibold text-end">
+            <p className="mb-6">
+              Happygods is a collection of 128 hand made paintings about:
+              <br /> happiness, luck, serenity, intelligence, love, money and
+              wisdom.
+            </p>
+            <p className="mb-6">
+              It&lsquo;s designed to be interesting and play with the
+              attributes.
+              <br /> All are different even having the same attributes, in
+              example &ldquo;money&rdquo; and &ldquo;luck&rdquo;.
+            </p>
+            <p className="mb-4">
+              Attributes are features each happygod has, there are:
+            </p>
+            <p className="mb-4">
+              64 happygods with 2 attributes, 32 with 3 attributes,
+              <br /> 16 with 4 attributes, 9 with 5 attributes, 6 with 6
+              attributes
+              <br /> and only one with the seven attributes,
+              <br /> Each has it&lsquo;s own name and drawing and colors.
+            </p>
+            <p className="mb-6">
+              64 happygods with 2 Attributes
+              <br /> 32 happygods with 3 Attributes
+              <br /> 16 happygods with 4 Attributes
+              <br /> 9 happygods with 5 Attributes
+              <br /> 6 happygods with 6 Attributes
+              <br /> 1 happygods with 7 Attributes
+            </p>
+          </div>
+        </section>
       </main>
     </div>
   );
