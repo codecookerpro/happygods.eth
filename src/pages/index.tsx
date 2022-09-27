@@ -1,12 +1,38 @@
+import { useEffect, useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import clsx from 'clsx';
-import { Bars3Icon } from '@heroicons/react/24/solid';
+import { Bars3Icon, ArrowUpIcon } from '@heroicons/react/24/solid';
 import styles from 'styles/Home.module.css';
-import { GRAPICS_MAP, FRENS_MAP } from 'helpers/constants';
+import { LINK_MAP, GRAPHIC_MAP, FREN_MAP } from 'helpers/constants';
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    import('flowbite');
+
+    const topEl = document.getElementById('scrollTop');
+    if (topEl) {
+      topEl.onclick = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      };
+    }
+
+    window.onscroll = () => {
+      if (topEl) {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          topEl.style.display = 'block';
+        } else {
+          topEl.style.display = 'none';
+        }
+      }
+    };
+  }, []);
+
   return (
     <div>
       <Head>
@@ -15,7 +41,40 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="2xl:container mx-auto">
+      <main className="2xl:container mx-auto relative">
+        <nav className="right-2 top-2 z-10 absolute bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+          <div className="container flex flex-wrap justify-between items-center mx-auto">
+            <button
+              data-collapse-toggle="navbar-default"
+              type="button"
+              className="inline-flex items-center p-2 ml-auto text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-default"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="w-6 h-6" />
+            </button>
+            <div
+              className="hidden w-full md:block md:w-auto"
+              id="navbar-default"
+            >
+              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                {LINK_MAP.map(({ label, href }, index) => (
+                  <li key={index}>
+                    <a
+                      href={href}
+                      className="block py-2 pr-4 pl-3 text-gray-700 font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                      aria-current="page"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </nav>
+
         <section id="home" className={styles.home}>
           <div className="flex items-center h-screen relative">
             <div className="ml-auto mr-4 md:mr-12 xl:mr-24 mb-24 text-end font-semibold">
@@ -68,8 +127,8 @@ const Home: NextPage = () => {
             Attributes are represented as a graphical feature:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-fit">
-            {GRAPICS_MAP.map(({ title, image }) => (
-              <div key={title} className="flex items-center">
+            {GRAPHIC_MAP.map(({ title, image }, index) => (
+              <div key={index} className="flex items-center">
                 <div className="flex mr-4">
                   <Image
                     src={
@@ -116,8 +175,8 @@ const Home: NextPage = () => {
               The 128 Frens:
             </p>
             <div className="grid grid-cols-4 md:grid-cols-11 gap-4 min-w-fit mx-auto">
-              {FRENS_MAP.map(({ title, image }) => (
-                <div key={title} className="flex flex-col w-14">
+              {FREN_MAP.map(({ title, image }, index) => (
+                <div key={index} className="flex flex-col w-14">
                   <Image
                     src={
                       image ?? 'https://dummyimage.com/50x50/dddddd/000000.png'
@@ -136,6 +195,15 @@ const Home: NextPage = () => {
         <section id="faq" className="px-4 md:px-12 xl:px-24 mb-10">
           <p className="font-semibold">HOW TO BUY? Easy!</p>
         </section>
+
+        <button
+          id="scrollTop"
+          type="button"
+          className="fixed right-2 bottom-2 bg-white text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+        >
+          <ArrowUpIcon className="w-4 h-4" />
+          <span className="sr-only">Scroll Top</span>
+        </button>
       </main>
     </div>
   );
