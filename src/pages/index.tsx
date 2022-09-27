@@ -4,6 +4,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import styles from 'styles/Home.module.css';
+import { GRAPICS_MAP } from 'helpers/constants';
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
         </section>
 
         <section id="about" className="md:mt-4 px-4 md:px-12 xl:px-24 mb-10">
-          <div className="text-md md:text-lg xl:text-xl font-semibold text-end">
+          <div className="text-md md:text-lg xl:text-2xl font-semibold text-end">
             <p className="mb-6">
               Happygods is a collection of 128 hand made paintings about:
               <br /> happiness, luck, serenity, intelligence, love, money and
@@ -59,6 +60,31 @@ const Home: NextPage = () => {
               <br /> 6 happygods with 6 Attributes
               <br /> 1 happygods with 7 Attributes
             </p>
+          </div>
+        </section>
+
+        <section id="graphics" className="px-4 md:px-12 xl:px-24 mb-10">
+          <p className="text-md md:text-lg xl:text-2xl font-semibold text-end mb-10">
+            Attributes are represented as a graphical feature:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-fit">
+            {GRAPICS_MAP.map(({ title, image }) => (
+              <div key={title} className="flex items-center">
+                <div className="flex mr-4">
+                  <Image
+                    src={
+                      image ?? 'https://dummyimage.com/50x50/dddddd/000000.png'
+                    }
+                    alt={title}
+                    width="50"
+                    height="50"
+                  />
+                </div>
+                <p className="uppercase text-md md:text-lg xl:text-2xl font-semibold">
+                  {title}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
       </main>
