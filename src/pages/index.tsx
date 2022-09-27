@@ -18,8 +18,12 @@ const Home: NextPage = () => {
         <section id="home" className={styles.home}>
           <div className="flex items-center h-screen relative">
             <div className="ml-auto mr-4 md:mr-12 xl:mr-24 mb-24 text-end">
-              <h1 className="text-4xl md:text-5xl xl:text-6xl mb-2 md:mb-4 xl:mb-6">happygods.eth</h1>
-              <p className="text-lg md:text-xl xl:text-2xl">A Nacho Frades collection all about happiness</p>
+              <h1 className="text-4xl md:text-5xl xl:text-6xl mb-2 md:mb-4 xl:mb-6">
+                happygods.eth
+              </h1>
+              <p className="text-lg md:text-xl xl:text-2xl">
+                A Nacho Frades collection all about happiness.
+              </p>
             </div>
           </div>
         </section>
