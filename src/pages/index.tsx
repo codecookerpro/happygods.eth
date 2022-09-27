@@ -1,5 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { Bars3Icon } from '@heroicons/react/24/solid';
+import styles from 'styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
@@ -10,9 +14,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
-
-      <footer></footer>
+      <main className="2xl:container mx-auto">
+        <section id="home" className={styles.home}>
+          <div className="flex items-center h-screen relative">
+            <div className="ml-auto mr-4 md:mr-12 xl:mr-24 mb-24 text-end">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl mb-2 md:mb-4 xl:mb-6">happygods.eth</h1>
+              <p className="text-lg md:text-xl xl:text-2xl">A Nacho Frades collection all about happiness</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
