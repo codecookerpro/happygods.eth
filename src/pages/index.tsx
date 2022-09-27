@@ -87,6 +87,20 @@ const Home: NextPage = () => {
             ))}
           </div>
         </section>
+
+        <section
+          id="epicon"
+          className={clsx(styles.epicon, 'px-4 md:px-12 xl:px-24 mb-10')}
+        >
+          <div className="flex items-center justify-center h-screen relative">
+            <p className="text-md md:text-lg xl:text-2xl font-semibold text-end">
+              happygod 074, &ldquo;EPICON&rdquo; has the attributes:
+              <br />
+              WISDOM, MONEY, LUCK, that&lsquo;s it&lsquo;s a happygod with 3
+              attributes.
+            </p>
+          </div>
+        </section>
       </main>
     </div>
   );

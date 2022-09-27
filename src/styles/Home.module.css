@@ -15,3 +15,21 @@
 .home > div > div {
   position: relative;
 }
+
+.epicon > div::before {
+  content: '';
+  background-image: url('https://dummyimage.com/500x500/dddddd/000000.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+}
+
+.epicon > div > p {
+  position: relative;
+}
