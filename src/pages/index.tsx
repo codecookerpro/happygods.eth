@@ -4,7 +4,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import styles from 'styles/Home.module.css';
-import { GRAPICS_MAP } from 'helpers/constants';
+import { GRAPICS_MAP, FRENS_MAP } from 'helpers/constants';
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       <main className="2xl:container mx-auto">
         <section id="home" className={styles.home}>
           <div className="flex items-center h-screen relative">
-            <div className="ml-auto mr-4 md:mr-12 xl:mr-24 mb-24 text-end">
+            <div className="ml-auto mr-4 md:mr-12 xl:mr-24 mb-24 text-end font-semibold">
               <h1 className="text-4xl md:text-5xl xl:text-6xl mb-2 md:mb-4 xl:mb-6">
                 happygods.eth
               </h1>
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
           id="epicon"
           className={clsx(styles.epicon, 'px-4 md:px-12 xl:px-24 mb-10')}
         >
-          <div className="flex items-center justify-center h-screen relative">
+          <div className="flex items-center justify-center h-96 relative">
             <p className="text-md md:text-lg xl:text-2xl font-semibold text-end">
               happygod 074, &ldquo;EPICON&rdquo; has the attributes:
               <br />
@@ -100,6 +100,41 @@ const Home: NextPage = () => {
               attributes.
             </p>
           </div>
+        </section>
+
+        <section id="frens" className="px-4 md:px-12 xl:px-24 mb-10">
+          <div className="flex flex-col md:flex-row justify-center mx-auto max-w-fit">
+            <p className="mb-2 text-end block md:hidden font-semibold">
+              The 128 Frens:
+            </p>
+            <p
+              className={clsx(
+                styles.frensLabel,
+                'mr-2 text-end hidden md:block font-semibold',
+              )}
+            >
+              The 128 Frens:
+            </p>
+            <div className="grid grid-cols-4 md:grid-cols-11 gap-4 min-w-fit mx-auto">
+              {FRENS_MAP.map(({ title, image }) => (
+                <div key={title} className="flex flex-col w-14">
+                  <Image
+                    src={
+                      image ?? 'https://dummyimage.com/50x50/dddddd/000000.png'
+                    }
+                    alt={title}
+                    width="50"
+                    height="50"
+                  />
+                  <p className="text-center font-semibold">{title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="px-4 md:px-12 xl:px-24 mb-10">
+          <p className="font-semibold">HOW TO BUY? Easy!</p>
         </section>
       </main>
     </div>
