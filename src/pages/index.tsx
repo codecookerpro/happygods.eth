@@ -9,6 +9,7 @@ import { LINK_MAP, GRAPHIC_MAP, FREN_MAP } from 'helpers/constants';
 
 const Home: NextPage = () => {
   useEffect(() => {
+    // @ts-ignore: Unreachable code error
     import('flowbite');
 
     const topEl = document.getElementById('scrollTop');
